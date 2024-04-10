@@ -1,18 +1,39 @@
-displayItemOnHomePage();
+let bagItems;
+onLoad();
+
+function onLoad(){
+    setBagItemsOnLoad();
+    displayItemOnHomePage();
+    displayBagItemCount();
+}
 
 
-let bagItems = []
+function setBagItemsOnLoad(){
+   let bagItemsStr = localStorage.getItem("bagItems");
+   bagItems = bagItemsStr? JSON.parse(bagItemsStr):[];
+}
+
+
 function addToBag(id){
     // console.log('function called');
     // console.log(id);
   bagItems.push(id);
 //   console.log(bagItems);
+localStorage.setItem("bagItems", JSON.stringify(bagItems));
+displayBagItemCount();
+}
+
+function displayBagItemCount(){
+    let bagItemCountElement = document.querySelector('.bag-item-count');
+    bagItemCountElement.innerText = bagItems.length > 0 ? bagItems.length : '';
+    bagItemCountElement.style.visibility = bagItems.length > 0 ? 'visible' : 'hidden';
 }
 
 
 function displayItemOnHomePage(){
     let itemContainerElement = document.querySelector('.items-container');
 
+    if(!itemContainerElement) return;
 let innerHTML = '';
 items.forEach(item => {    
     innerHTML += `
