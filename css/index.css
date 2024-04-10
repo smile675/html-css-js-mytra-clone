@@ -245,10 +245,20 @@ header {
 .items-container {
     width: 90%;
     margin: 40px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+
 .item-container {
+    padding: 5px;
+    margin: 10px;
     width: 250px;
+}
+.item-container:hover{
+    transform: scale(1.02) perspective(0px);
+  box-shadow: 4px 4px 4px 4px rgba(60, 60, 93, 0.33)
 }
 
 .item-image {
@@ -326,4 +336,30 @@ header {
     font-weight: 600;
     cursor: pointer;
 
+}
+
+.bag-item-count{
+
+    background-color: #f16565;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 18px;
+    padding: 0 6px;
+    height: 18px;
+    position: relative;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    left: 13px;
+    top: -44px;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+.action_container {
+    text-decoration: none;
+}
+a.action_container:link {
+    color:black;
 }
